@@ -3,18 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>GCE-LogoHEALTH</title>
+    <title>LOGOHealth - Healthcare & Language</title>
+    <style>
+        :root {
+            --primary-blue: #00a2ff;
+            --primary-green: #42ff00;
+            --dark-bg: #1a1a1a;
+            --card-bg: rgba(36, 36, 36, 0.8);
+            --text-color: #ffffff;
+            --shadow-light: rgba(255, 255, 255, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Neumorphic and Glassmorphic Elements */
+        .neu-element {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                       -8px -8px 16px var(--shadow-light);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span:first-child {
+            color: var(--primary-blue);
+        }
+
+        .logo span:last-child {
+            color: var(--primary-green);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-image {
+            position: relative;
+            padding: 40px;
+        }
+
+        .hero-card {
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .hero-card img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            color: var(--text-color);
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                       -4px -4px 8px var(--shadow-light);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                       -4px -4px 8px var(--shadow-light);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 12px var(--shadow-dark),
+                       -6px -6px 12px var(--shadow-light);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: rgba(36, 36, 36, 0.5);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="card">
-        <h1><span class="lo">LOGO</span><span class="health">Health</span></h1>
-        <img src="logobetty2.jpg" alt="Logo" class="logo">
-        <h2>Grupo Científico Estudiantil</h2>
-        <p>Apasionados por la salud y el lenguaje.</p>
-        <button class="saber_mas_btn" onclick="location.href='saber_mas.html'">Saber más...</button>
-        <button class="boton" id="contactButton">Contactar</button>
-    </div>
-    <script src="script.js"></script>
+    <header class="neu-element">
+        <nav class="nav container">
+            <div class="logo">
+                <span>LOGO</span><span>Health</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Inicio</a>
+                <a href="#features">Servicios</a>
+                <a href="#testimonials">Testimonios</a>
+                <a href="#contact">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero container">
+            <div class="hero-content">
+                <div class="hero-text neu-element">
+                    <h1>Grupo Científico Estudiantil</h1>
+                    <p>Apasionados por la salud y el lenguaje. Innovando en la intersección de la atención médica y la comunicación efectiva.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Saber más...</a>
+                        <a href="#" class="btn btn-secondary">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card neu-element">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23242424'/%3E%3Cpath d='M50 20c-11 0-20 9-20 20v10c0 11 9 20 20 20s20-9 20-20V40c0-11-9-20-20-20zm10 30c0 5.5-4.5 10-10 10s-10-4.5-10-10V40c0-5.5 4.5-10 10-10s10 4.5 10 10v10z' fill='%2300a2ff'/%3E%3Ccircle cx='70' cy='35' r='10' fill='%2342ff00'/%3E%3C/svg%3E" alt="LOGOHealth Icon">
+                        <h3>LOGOHealth</h3>
+                        <p>Innovación en Salud</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="features-grid">
+                <div class="feature-card neu-element">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Investigación</h3>
+                    <p>Desarrollamos investigaciones innovadoras en el campo de la salud.</p>
+                </div>
+                <div class="feature-card neu-element">
+                    <div class="feature-icon">💡</div>
+                    <h3>Educación</h3>
+                    <p>Formación continua y desarrollo profesional en el sector salud.</p>
+                </div>
+                <div class="feature-card neu-element">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Colaboración</h3>
+                    <p>Trabajamos en equipo para alcanzar mejores resultados.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Testimonios</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card neu-element">
+                        <p class="testimonial-content">"LOGOHealth ha revolucionado nuestra forma de abordar la investigación en salud. Su enfoque innovador es inspirador."</p>
+                        <p class="testimonial-author">- Dra. María González, Investigadora Principal</p>
+                    </div>
+                    <div class="testimonial-card neu-element">
+                        <p class="testimonial-content">"Gracias a LOGOHealth, he podido combinar mi pasión por la medicina y el lenguaje de una manera que nunca imaginé posible."</p>
+                        <p class="testimonial-author">- Carlos Rodríguez, Estudiante de Medicina</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta">
+            <div class="container">
+                <div class="cta-content neu-element">
+                    <h2 class="section-title">¿Listo para unirte a la revolución en salud y lenguaje?</h2>
+                    <p>Únete a nuestro grupo científico estudiantil y sé parte del cambio en la atención médica y la comunicación.</p>
+                    <a href="#" class="btn btn-primary">Únete Ahora</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo"><span>LOGO</span><span>Health</span></h3>
+                    <p>Innovando en la intersección de la salud y el lenguaje.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#features">Servicios</a></li>
+                        <li><a href="#testimonials">Testimonios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><h3>Contacto</h3>
+                    <p>Email: info@logohealth.com</p>
+                    <p>Teléfono: +1 234 567 890</p>
+                    <p>Dirección: 123 Calle Salud, Ciudad</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add hover effect to neumorphic elements
+        const neuElements = document.querySelectorAll('.neu-element');
+        neuElements.forEach(element => {
+            element.addEventListener('mouseover', () => {
+                element.style.transform = 'scale(1.02)';
+            });
+            element.addEventListener('mouseout', () => {
+                element.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const heroImage = document.querySelector('.hero-image');
+            const scrollPosition = window.pageYOffset;
+            heroImage.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+        });
+    </script>
 </body>
 </html>
