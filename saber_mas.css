@@ -32,10 +32,11 @@ body {
     line-height: 1.2;
     color: #eceff1;
     background-color: #2b2b2b;
+    box-shadow: 0 8px 15px rgba(0, 255, 125, 2);
 }
 
 .card:hover{
-    box-shadow: 0 8px 15px rgba(0, 255, 125, 2);
+    box-shadow: 0 8px 15px #1eb6df;
     transition: 0.3s
 }
 
