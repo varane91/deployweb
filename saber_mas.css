@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300vh;
+    background-color: #212121;
+    color: #ddd;
+    margin: 0;
+    margin: 20px;
+    margin-bottom: 40px;
+}
+
+.container {
+    display: flex; /* Usar flexbox para alinear las tarjetas */
+    flex-direction: column;
+    overflow-y: 400px;
+    overflow-x: 400px;
+    gap: 20px; /* Espacio entre las tarjetas */
+    width: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.card {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: #eceff1;
+    background-color: #2b2b2b;
+    box-shadow: 0 8px 15px rgba(0, 255, 125, 2);
+}
+
+.card:hover{
+    box-shadow: 0 8px 15px #1eb6df;
+    transition: 0.3s
+}
+
+h1 {
+    color: #2edc2b;
+    margin: 0;
+    font-size: 24px;
+}
+
+.lo{
+    color: #1eb6df;
+}
+
+.health{
+    color: #2edc2b;
+}
+
+.logo{
+    width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
+    border-radius: 5px;
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 10px 0; /* Espaciado alrededor de la imagen */
+}
+
+.justificar{
+    text-align: justify;
+    font-family: "Roboto", system-ui, sans-serif;
+}

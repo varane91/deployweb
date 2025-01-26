@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo de Desarrollo - LOGOHealth</title>
+    <style>
+        :root {
+            --primary-blue: #00a2ff;
+            --primary-green: #42ff00;
+            --dark-bg: #1a1a1a;
+            --card-bg: rgba(36, 36, 36, 0.8);
+            --text-color: #ffffff;
+            --shadow-light: rgba(255, 255, 255, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                       -8px -8px 16px var(--shadow-light);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px #1eb6df;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+
+        .card p {
+            margin-bottom: 5px;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grupo de Desarrollo - LOGOHealth</h1>
+        <div class="card-grid">
+            <div class="card">
+                <h2>Presidente</h2>
+                <p>Estudiante María de Jesús Arañó Pérez</p>
+            </div>
+            <div class="card">
+                <h2>Coordinador(a) del Grupo</h2>
+                <p>Dr.C. Adnery Lozada Ortiz</p>
+            </div>
+            <div class="card">
+                <h2>Disposición</h2>
+                <p>Disponer que el GCE promueva y asesore el cumplimiento de las acciones de investigación científica de los estudiantes de la Facultad Ciencias de la Educación.</p>
+            </div>
+            <div class="card">
+                <h2>Profesor Coordinadores</h2>
+                <ul>
+                    <li>Dr.C. Adnery Lozada Ortiz. Prof. Titular</li>
+                    <li>MSc. Beatriz Sánchez González, Prof.Instructor</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Profesores</h2>
+                <ul>
+                    <li>Dr. C. Martha Silvia Mancebo Calzado, Prof. Titular</li>
+                    <li>Dr. C. Yamilé Coello</li>
+                    <li>Dr. C. Héctor Núñez Guzmán, Prof. Titular</li>
+                    <li>MSc. Esteban Hechavarría García, Prof. Auxiliar</li>
+                    <li>MSc. Tania Talía Merino Torres, Prof. Instructor</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Presidente</h2>
+                <p>Thaima Acosta Garcés</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo"><span>LOGO</span><span>Health</span></h3>
+                    <p>Innovando en la intersección de la salud y el lenguaje.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#features">Saber más</a></li>
+                        <li><a href="#testimonials">Testimonios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><h3>Contacto</h3>
+                    <p>Email: gcelogohealth@uo.edu.cu</p>
+                    <p>Teléfono: +53 12345678</p>
+                    <p>Dirección: Facultad de Ciencias de la Educación, ISPJAM, UO, Santiago de Cuba</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
